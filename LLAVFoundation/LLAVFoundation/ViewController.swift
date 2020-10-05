@@ -17,8 +17,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "audioTableViewCell")
         array = [
-            ["name":"音频操作","vc":"AudioController"],
-            ["name":"AVAseet","vc":"AssetController"]
+            ["name":"AVAudioPlayer","vc":"AudioController"],
+            ["name":"AVAseet","vc":"AssetController"],
+            ["name":"AVPlayer","vc":"PlayerController"],
 
         ]
         tableView.reloadData();

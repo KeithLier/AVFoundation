@@ -32,9 +32,14 @@ class AssetController: UIViewController {
 //        // 第二种方式
 //        let options = [AVURLAssetPreferPreciseDurationAndTimingKey: true];   // 获取精准的播放时间
 //        let urlAsset = AVURLAsset(url: URL(fileURLWithPath: path!, isDirectory: true), options: options)
+        
+        // 播放视频
         let videoTrack = asset.tracks(withMediaType: .video)
         playTrack(track: videoTrack.first)
         
+        // 播放音频
+//        let audioTrack = asset.tracks(withMediaType: .audio)
+//        playTrack(track: audioTrack.first)
         getAssetAttribute()
     }
 
