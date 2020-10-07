@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             ["name":"AVAudioPlayer","vc":"AudioController"],
             ["name":"AVAseet","vc":"AssetController"],
             ["name":"AVPlayer","vc":"PlayerController"],
+            ["name":"Separation","vc":"SeparationController"]
 
         ]
         tableView.reloadData();
