@@ -22,6 +22,9 @@ class SeparationController: UIViewController {
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     @IBOutlet weak var playerView: PlayerView?
+    @IBOutlet weak var audioButton: UIButton?
+    @IBOutlet weak var videoButton: UIButton?
+    @IBOutlet weak var multiButton: UIButton?
 
 
     override func viewDidLoad() {
@@ -31,15 +34,36 @@ class SeparationController: UIViewController {
     }
 
     @IBAction func audioExport(_sender: Any) {
+        if audioButton?.isSelected == true {
+            let url = getURLWithFileName(fileName: "export_separation_audio.m4a")
+            let asset = AVAsset(url: url)
+            play(asset: asset)
+            return;
+        }
         setAudioAndExport()
+        audioButton?.isEnabled = false
     }
 
     @IBAction func videoExport(_sender: Any) {
+        if videoButton?.isSelected == true {
+            let url = getURLWithFileName(fileName: "export_separation_video.mp4")
+            let asset = AVAsset(url: url)
+            play(asset: asset)
+            return;
+        }
         setVideoExport()
+        videoButton?.isEnabled = false
     }
 
     @IBAction func multiExport(_sender: Any) {
+        if multiButton?.isSelected == true {
+            let url = getURLWithFileName(fileName: "export_separation_mutable_video.mp4")
+            let asset = AVAsset(url: url)
+            play(asset: asset)
+            return;
+        }
         setMultiExport()
+        multiButton?.isEnabled = false
     }
 
     func play(asset: AVAsset) {
@@ -85,7 +109,7 @@ extension SeparationController {
         } else {
             audioExport = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetPassthrough)
         }
-        audioExport?.outputURL = getExportUlrWithFileName(fileName: "export_separation_audio.m4a")
+        audioExport?.outputURL = getExportURLWithFileName(fileName: "export_separation_audio.m4a")
         audioExport?.outputFileType = AVFileType.m4a
 //        if isSimulator() {
 //            audioExport?.outputFileType = AVFileType.caf
@@ -94,7 +118,10 @@ extension SeparationController {
 //        }
         audioExport?.shouldOptimizeForNetworkUse = true
         audioExport?.exportAsynchronously(completionHandler: {
-            
+            DispatchQueue.main.async {
+                self.audioButton?.isEnabled = true
+                self.audioButton?.isSelected = true
+            }
         })
     }
 }
@@ -131,10 +158,13 @@ extension SeparationController {
     func videoExportSession(asset: AVAsset) {
         let presetNames = AVAssetExportSession.exportPresets(compatibleWith: asset)
         videoExport = AVAssetExportSession(asset: asset, presetName: presetNames.first ?? AVAssetExportPresetPassthrough)
-        videoExport?.outputURL = getExportUlrWithFileName(fileName: "export_separation_video.mp4")
+        videoExport?.outputURL = getExportURLWithFileName(fileName: "export_separation_video.mp4")
         videoExport?.outputFileType = AVFileType.mp4
         videoExport?.exportAsynchronously(completionHandler: {
-            
+            DispatchQueue.main.async {
+                self.videoButton?.isEnabled = true
+                self.videoButton?.isSelected = true
+            }
         })
     }
 }
@@ -180,7 +210,7 @@ extension SeparationController {
         //保证总时长一致
         //视频
         mutableComposition = AVMutableComposition()
-        let timeRange = CMTimeRange(start: CMTime(value: 0, timescale: 1), end: CMTime(value: 60, timescale: 1))
+        let timeRange = CMTimeRange(start: CMTime(value: 0, timescale: 1), end: CMTime(value: 15, timescale: 1))
         
         if let compositionVideoTrack = mutableComposition?.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) {
             if firstVideoTrack != nil {
@@ -198,21 +228,24 @@ extension SeparationController {
     func mutableExportSession(asset: AVAsset) {
         let presetNames = AVAssetExportSession.exportPresets(compatibleWith: asset)
         mutableExport = AVAssetExportSession(asset: asset, presetName: presetNames.first ?? AVAssetExportPresetPassthrough)
-        mutableExport?.outputURL = getExportUlrWithFileName(fileName: "export_separation_mutable_video.mp4")
+        mutableExport?.outputURL = getExportURLWithFileName(fileName: "export_separation_mutable_video.mp4")
         if isSimulator() {
             mutableExport?.outputFileType = AVFileType.mov
         } else {
             mutableExport?.outputFileType = AVFileType.mp4
         }
         mutableExport?.exportAsynchronously(completionHandler: {
-            
+            DispatchQueue.main.async {
+                self.multiButton?.isEnabled = true
+                self.multiButton?.isSelected = true
+            }
         })
     }
 }
 
 // 公共函数
 extension SeparationController {
-    func getExportUlrWithFileName(fileName: String) -> URL {
+    func getExportURLWithFileName(fileName: String) -> URL {
         let path =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let url = path.appendingPathComponent(fileName)
         if FileManager.default.fileExists(atPath: url.path){
@@ -221,6 +254,12 @@ extension SeparationController {
         return url
     }
     
+    func getURLWithFileName(fileName: String) -> URL {
+        let path =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = path.appendingPathComponent(fileName)
+        return url
+    }
+
     func isSimulator() -> Bool {
         var isSim = false
         #if arch(i386) || arch(x86_64)
