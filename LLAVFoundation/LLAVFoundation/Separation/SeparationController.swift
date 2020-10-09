@@ -174,7 +174,7 @@ extension SeparationController {
     func setMultiExport() {
         //video track
         //video asset1
-        guard let path = Bundle.main.path(forResource: "1", ofType: "mp4") else {
+        guard let path = Bundle.main.path(forResource: "11", ofType: "mp4") else {
             return
         }
         let url = URL(fileURLWithPath: path)
