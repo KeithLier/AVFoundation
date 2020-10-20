@@ -10,6 +10,7 @@
 		530D4EE4252E0619008E5F6E /* 2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 530D4EE3252E0619008E5F6E /* 2.mp4 */; };
 		530D4EEB252EB75F008E5F6E /* VideoCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530D4EE9252EB75F008E5F6E /* VideoCameraController.swift */; };
 		530D4EEC252EB75F008E5F6E /* VideoCameraController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 530D4EEA252EB75F008E5F6E /* VideoCameraController.xib */; };
+		53432EC3253E61F0001E4616 /* VideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53432EC2253E61F0001E4616 /* VideoEncoder.swift */; };
 		534FE23A2528A8480008ABBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FE2392528A8480008ABBD /* AppDelegate.swift */; };
 		534FE23C2528A8480008ABBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FE23B2528A8480008ABBD /* SceneDelegate.swift */; };
 		534FE23E2528A8480008ABBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FE23D2528A8480008ABBD /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		530D4EE3252E0619008E5F6E /* 2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.mp4; sourceTree = "<group>"; };
 		530D4EE9252EB75F008E5F6E /* VideoCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCameraController.swift; sourceTree = "<group>"; };
 		530D4EEA252EB75F008E5F6E /* VideoCameraController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCameraController.xib; sourceTree = "<group>"; };
+		53432EC2253E61F0001E4616 /* VideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEncoder.swift; sourceTree = "<group>"; };
 		534FE2362528A8480008ABBD /* LLAVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLAVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		534FE2392528A8480008ABBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		534FE23B2528A8480008ABBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				530D4EE9252EB75F008E5F6E /* VideoCameraController.swift */,
 				530D4EEA252EB75F008E5F6E /* VideoCameraController.xib */,
+				53432EC2253E61F0001E4616 /* VideoEncoder.swift */,
 			);
 			path = VideoCamera;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				53DBFEEB2529BD81001578B4 /* AssetController.swift in Sources */,
 				534FE23C2528A8480008ABBD /* SceneDelegate.swift in Sources */,
 				530D4EEB252EB75F008E5F6E /* VideoCameraController.swift in Sources */,
+				53432EC3253E61F0001E4616 /* VideoEncoder.swift in Sources */,
 				535ECAF9252D9B8D007E81DA /* SeparationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
