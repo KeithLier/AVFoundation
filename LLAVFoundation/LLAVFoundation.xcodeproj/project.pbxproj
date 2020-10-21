@@ -25,6 +25,9 @@
 		535ECAFA252D9B8D007E81DA /* SeparationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535ECAF8252D9B8D007E81DA /* SeparationController.xib */; };
 		535ECAFF252D9D09007E81DA /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 535ECAFE252D9D09007E81DA /* 1.mp3 */; };
 		535ECB07252DFA10007E81DA /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 535ECB06252DFA10007E81DA /* 2.mp3 */; };
+		5373570E253EE9C3009B5981 /* VideoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373570D253EE9C3009B5981 /* VideoDecoder.swift */; };
+		53735715253FBE01009B5981 /* VideoToolboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53735713253FBE01009B5981 /* VideoToolboxController.swift */; };
+		53735716253FBE01009B5981 /* VideoToolboxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53735714253FBE01009B5981 /* VideoToolboxController.xib */; };
 		53DBFEEB2529BD81001578B4 /* AssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEE92529BD81001578B4 /* AssetController.swift */; };
 		53DBFEEC2529BD81001578B4 /* AssetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DBFEEA2529BD81001578B4 /* AssetController.xib */; };
 		53DBFEF5252ACBC9001578B4 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 53DBFEF4252ACBC9001578B4 /* 1.mp4 */; };
@@ -75,6 +78,9 @@
 		535ECAF8252D9B8D007E81DA /* SeparationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparationController.xib; sourceTree = "<group>"; };
 		535ECAFE252D9D09007E81DA /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		535ECB06252DFA10007E81DA /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		5373570D253EE9C3009B5981 /* VideoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDecoder.swift; sourceTree = "<group>"; };
+		53735713253FBE01009B5981 /* VideoToolboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoToolboxController.swift; sourceTree = "<group>"; };
+		53735714253FBE01009B5981 /* VideoToolboxController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoToolboxController.xib; sourceTree = "<group>"; };
 		53DBFEE92529BD81001578B4 /* AssetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetController.swift; sourceTree = "<group>"; };
 		53DBFEEA2529BD81001578B4 /* AssetController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetController.xib; sourceTree = "<group>"; };
 		53DBFEF4252ACBC9001578B4 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
@@ -113,7 +119,6 @@
 			children = (
 				530D4EE9252EB75F008E5F6E /* VideoCameraController.swift */,
 				530D4EEA252EB75F008E5F6E /* VideoCameraController.xib */,
-				53432EC2253E61F0001E4616 /* VideoEncoder.swift */,
 			);
 			path = VideoCamera;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				534FE2392528A8480008ABBD /* AppDelegate.swift */,
 				534FE23B2528A8480008ABBD /* SceneDelegate.swift */,
 				534FE23D2528A8480008ABBD /* ViewController.swift */,
+				53735712253FBD51009B5981 /* VideoToolBox */,
 				530D4EE8252EB702008E5F6E /* VideoCamera */,
 				535ECAF6252D9B36007E81DA /* Separation */,
 				535ECAF3252D9AD5007E81DA /* Audio */,
@@ -214,6 +220,17 @@
 				535ECAF8252D9B8D007E81DA /* SeparationController.xib */,
 			);
 			path = Separation;
+			sourceTree = "<group>";
+		};
+		53735712253FBD51009B5981 /* VideoToolBox */ = {
+			isa = PBXGroup;
+			children = (
+				53735713253FBE01009B5981 /* VideoToolboxController.swift */,
+				53735714253FBE01009B5981 /* VideoToolboxController.xib */,
+				53432EC2253E61F0001E4616 /* VideoEncoder.swift */,
+				5373570D253EE9C3009B5981 /* VideoDecoder.swift */,
+			);
+			path = VideoToolBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +348,7 @@
 				53DBFF04252B52C7001578B4 /* PlayerController.xib in Resources */,
 				534FE2752528A8FC0008ABBD /* AudioController.xib in Resources */,
 				534FE2412528A8480008ABBD /* Main.storyboard in Resources */,
+				53735716253FBE01009B5981 /* VideoToolboxController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,8 +379,10 @@
 				53DBFEFD252B2701001578B4 /* PlayerView.swift in Sources */,
 				53DBFF03252B52C7001578B4 /* PlayerController.swift in Sources */,
 				53DBFEEB2529BD81001578B4 /* AssetController.swift in Sources */,
+				5373570E253EE9C3009B5981 /* VideoDecoder.swift in Sources */,
 				534FE23C2528A8480008ABBD /* SceneDelegate.swift in Sources */,
 				530D4EEB252EB75F008E5F6E /* VideoCameraController.swift in Sources */,
+				53735715253FBE01009B5981 /* VideoToolboxController.swift in Sources */,
 				53432EC3253E61F0001E4616 /* VideoEncoder.swift in Sources */,
 				535ECAF9252D9B8D007E81DA /* SeparationController.swift in Sources */,
 			);

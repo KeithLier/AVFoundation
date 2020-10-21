@@ -21,15 +21,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikE-dx-2DC" customClass="PreviewView" customModule="LLAVFoundation" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="44" width="414" height="350"/>
+                    <rect key="frame" x="0.0" y="204" width="414" height="316"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUh-0E-SKN">
+                    <rect key="frame" x="151" y="75" width="122" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="开始录制"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ikE-dx-2DC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7UO-kS-sUT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ikE-dx-2DC" secondAttribute="bottom" constant="468" id="AIj-lD-FhN"/>
+                <constraint firstItem="ikE-dx-2DC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="160" id="7UO-kS-sUT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ikE-dx-2DC" secondAttribute="bottom" constant="342" id="AIj-lD-FhN"/>
                 <constraint firstItem="ikE-dx-2DC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="lG4-xW-YHC"/>
                 <constraint firstItem="ikE-dx-2DC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rOA-LX-hx4"/>
             </constraints>

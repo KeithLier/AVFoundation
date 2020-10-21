@@ -22,12 +22,13 @@ class PreviewView: UIView {
 
 class VideoCameraController: UIViewController {
 
-    var cameraDeviceInput: AVCaptureDeviceInput?
+    var captureDeviceInput: AVCaptureDeviceInput?
     var captureSession: AVCaptureSession?
     var displayLayer: AVSampleBufferDisplayLayer?
-    
+    var captureQuene: DispatchQueue?
+    var encodeQuene: DispatchQueue?
     var compressionSession: VTCompressionSession?
-    
+    var frameID: Int64 = 0
     @IBOutlet var previewView: PreviewView!
     
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ class VideoCameraController: UIViewController {
         default:
             return
         }
+
     }
     
     func setupCaptureSession() {
@@ -80,6 +82,7 @@ class VideoCameraController: UIViewController {
 extension VideoCameraController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
+        self.encodeQuene?.sync {
+        }
     }
 }

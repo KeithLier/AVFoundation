@@ -45,6 +45,19 @@ class VideoEncoder: NSObject {
     // 初始化编码器
     func initVideoToolBox() {
         // 创建VTCompressionSession
+        /**
+         参数解析
+         allocator: 分配器，设置nil为默认分配
+         width: 宽度
+         height: 高度
+         codecType: 编码类型，如kCMVideoCodecType_H264
+         encoderSpecification: 编码规范，设置nil由videoToolbox自主选择
+         imageBufferAttributes: 源像素缓冲区属性，设置nil不让videoToolbox创建，而是自己创建
+         compressedDataAllocator: 压缩数据分配器，设置nil为默认的分配
+         outputCallback: 回调，当VTCompressionSessionEncodeFrame被调用压缩一次后会被异步调用，设置nil时，需要调用VTCompressionSessionEncodeFrameWithOutputHandler方法进行压缩帧处理
+         refcon: 回调客户定义的参考值
+         compressionSessionOut: 编码会话变量
+         */
         let state = VTCompressionSessionCreate(allocator: kCFAllocatorDefault, width: width, height: height, codecType: kCMVideoCodecType_H264, encoderSpecification: nil, imageBufferAttributes: nil, compressedDataAllocator: nil, outputCallback: encodeCallBack, refcon: unsafeBitCast(self, to: UnsafeMutableRawPointer.self), compressionSessionOut: &self.encodeSession)
         if state != noErr {
             print("creat VTCompressionSession failed")
@@ -80,7 +93,17 @@ class VideoEncoder: NSObject {
             let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
             let time = CMTime(value: self.frameID, timescale: 1000)
             var flags: VTEncodeInfoFlags = VTEncodeInfoFlags()
-
+            // 开始编码
+            /**
+             参数解析
+             session: 编码会话变量
+             imageBuffer: 未编码的数据
+             presentationTimeStamp: 获取到的这个sampleBuffer数据的展示时间戳，每一个传给session的时间戳都要大于前一个展示的时间戳
+             duration: 对于获取到sampleBuffer数据，这个帧的展示时间，如果没有展示时间信息，则设置为kCMTimeInvalid
+             frameProperties: 包含这个帧的属性，帧的改变会影响后面的编码帧
+             infoFlagsOut: 指向一个VTEncodeInfoFlags来接受一个编码操作
+             outputHandler: 回调函数
+             */
             VTCompressionSessionEncodeFrame(self.encodeSession, imageBuffer: imageBuffer!, presentationTimeStamp: time, duration: .invalid, frameProperties: nil, infoFlagsOut: &flags){ (status, flags, buffer) in
                 if(status != noErr) {
                     print("H.264:VTCompressionSessionEncodeFrame faild with %d",status)
