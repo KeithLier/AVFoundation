@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             ["name":"AVPlayer","vc":"PlayerController"],
             ["name":"Separation","vc":"SeparationController"],
             ["name":"Camera","vc":"VideoCameraController"],
-            ["name":"VideoToolBox","vc":"VideoToolBoxController"]
+            ["name":"VideoToolBox","vc":"VideoToolboxController"]
 
         ]
         tableView.reloadData();

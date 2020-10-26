@@ -28,6 +28,7 @@
 		5373570E253EE9C3009B5981 /* VideoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373570D253EE9C3009B5981 /* VideoDecoder.swift */; };
 		53735715253FBE01009B5981 /* VideoToolboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53735713253FBE01009B5981 /* VideoToolboxController.swift */; };
 		53735716253FBE01009B5981 /* VideoToolboxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53735714253FBE01009B5981 /* VideoToolboxController.xib */; };
+		5373577925410CE1009B5981 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5373577725410CE1009B5981 /* AAPLEAGLLayer.m */; };
 		53DBFEEB2529BD81001578B4 /* AssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEE92529BD81001578B4 /* AssetController.swift */; };
 		53DBFEEC2529BD81001578B4 /* AssetController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DBFEEA2529BD81001578B4 /* AssetController.xib */; };
 		53DBFEF5252ACBC9001578B4 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 53DBFEF4252ACBC9001578B4 /* 1.mp4 */; };
@@ -81,6 +82,9 @@
 		5373570D253EE9C3009B5981 /* VideoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDecoder.swift; sourceTree = "<group>"; };
 		53735713253FBE01009B5981 /* VideoToolboxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoToolboxController.swift; sourceTree = "<group>"; };
 		53735714253FBE01009B5981 /* VideoToolboxController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoToolboxController.xib; sourceTree = "<group>"; };
+		5373577625410CE0009B5981 /* LLAVFoundation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LLAVFoundation-Bridging-Header.h"; sourceTree = "<group>"; };
+		5373577725410CE1009B5981 /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
+		5373577825410CE1009B5981 /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
 		53DBFEE92529BD81001578B4 /* AssetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetController.swift; sourceTree = "<group>"; };
 		53DBFEEA2529BD81001578B4 /* AssetController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetController.xib; sourceTree = "<group>"; };
 		53DBFEF4252ACBC9001578B4 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
@@ -229,6 +233,9 @@
 				53735714253FBE01009B5981 /* VideoToolboxController.xib */,
 				53432EC2253E61F0001E4616 /* VideoEncoder.swift */,
 				5373570D253EE9C3009B5981 /* VideoDecoder.swift */,
+				5373577825410CE1009B5981 /* AAPLEAGLLayer.h */,
+				5373577725410CE1009B5981 /* AAPLEAGLLayer.m */,
+				5373577625410CE0009B5981 /* LLAVFoundation-Bridging-Header.h */,
 			);
 			path = VideoToolBox;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 				TargetAttributes = {
 					534FE2352528A8480008ABBD = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1200;
 					};
 					534FE24B2528A84B0008ABBD = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -382,6 +390,7 @@
 				5373570E253EE9C3009B5981 /* VideoDecoder.swift in Sources */,
 				534FE23C2528A8480008ABBD /* SceneDelegate.swift in Sources */,
 				530D4EEB252EB75F008E5F6E /* VideoCameraController.swift in Sources */,
+				5373577925410CE1009B5981 /* AAPLEAGLLayer.m in Sources */,
 				53735715253FBE01009B5981 /* VideoToolboxController.swift in Sources */,
 				53432EC3253E61F0001E4616 /* VideoEncoder.swift in Sources */,
 				535ECAF9252D9B8D007E81DA /* SeparationController.swift in Sources */,
@@ -560,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V43UX8WJSQ;
 				INFOPLIST_FILE = LLAVFoundation/Info.plist;
@@ -570,6 +580,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.Charles-Keith.LLAVFoundation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LLAVFoundation/VideoToolBox/LLAVFoundation-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,6 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V43UX8WJSQ;
 				INFOPLIST_FILE = LLAVFoundation/Info.plist;
@@ -590,6 +603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.Charles-Keith.LLAVFoundation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LLAVFoundation/VideoToolBox/LLAVFoundation-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
