@@ -79,13 +79,13 @@ class VideoToolboxController: UIViewController {
         //编码
         encoder = VideoEncoder(width: 480, height: 640)
         encoder.videoEncodeCallback {[weak self] (data) in
-            self?.writeTofile(data: data)
+//            self?.writeTofile(data: data)
             self?.decoder.decode(data: data)
         }
         encoder.videoEncodeCallBackSPSAndPPS {[weak self] (sps, pps) in
             //存入文件
-            self?.writeTofile(data: sps)
-            self?.writeTofile(data: pps)
+//            self?.writeTofile(data: sps)
+//            self?.writeTofile(data: pps)
             //直接解码
             self?.decoder.decode(data: sps)
             self?.decoder.decode(data: pps)
@@ -123,8 +123,8 @@ class VideoToolboxController: UIViewController {
             //这里设置格式为BGRA，而不用YUV的颜色空间，避免使用Shader转换
             //注意:这里必须和后面CVMetalTextureCacheCreateTextureFromImage 保存图像像素存储格式保持一致.否则视频会出现异常现象.
             output.videoSettings = [String(kCVPixelBufferPixelFormatTypeKey)  :NSNumber(value: kCVPixelFormatType_32BGRA) ]
-//            let connection: AVCaptureConnection = output.connection(with: .video)!
-//            connection.videoOrientation = .portrait
+            let connection: AVCaptureConnection = output.connection(with: .video)!
+            connection.videoOrientation = .portrait
             
             if fileHandle == nil{
                 //生成的文件地址
